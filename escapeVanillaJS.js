@@ -25,20 +25,23 @@ document.getElementById("solveRoom1").addEventListener("click", () => {
         document.getElementById("room2Result").textContent = `The code to unlock the door is: ${Array.from(commonConcepts).join(', ')}`;
     });
 
-    // Event listener for solving Room 3 (asynchronous)
     // 🪲 Bug: Asynchronous function ?
-    document.getElementById("solveRoom3").addEventListener("click", async () => {   //makes the event listener asynchronous to handle the ftch and navigateLabyrinth promises.
-        fetch('directions.json') 
-            .then(response => response.json())
-            .then(directions => {
-                navigateLabyrinth(directions)
-                    .then(message => {
-                        // 🪲 Bug: Incorrect method
-                        document.getElementById("room3Result").innerHTML = message;
-                    });
-            });
+    
+    // Event listener for solving Room 3 (asynchronous)
+    document.getElementById("solveRoom3").addEventListener("click", async () => {
+        try {
+        // Fetch data from 'directions.json'
+        const response = await fetch('directions.json');
+        const directions = await response.json();
+        // Navigate the labyrinth using navigateLabyrinth function
+        const message = await navigateLabyrinth(directions);
+        // Update the text content of "room3Result" element with the message
+        document.getElementById("room3Result").textContent = message;
+        } catch (error) {
+        console.error("Error navigating labyrinth:", error);
+        // Handle the error gracefully, e.g., display an error message to the user
+        }
     });
-});
 
 function findMostRecentBook(books) {
     // 🪲 Bug: Logic error
