@@ -26,7 +26,6 @@ document.getElementById("solveRoom1").addEventListener("click", () => {
     });
 
     // 🪲 Bug: Asynchronous function ?
-    
     // Event listener for solving Room 3 (asynchronous)
     document.getElementById("solveRoom3").addEventListener("click", async () => {
         try {
