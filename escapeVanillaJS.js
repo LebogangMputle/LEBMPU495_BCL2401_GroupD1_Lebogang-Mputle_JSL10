@@ -1,17 +1,18 @@
+
 // Event listener for solving Room 1
 document.getElementById("solveRoom1").addEventListener("click", () => {
+    // Fetch data from 'books.json'
     // 🪲 Bug: Incorrect ID used for attaching the event listener
-    document.getElementById("solveRoom").addEventListener("click", () => {
-        fetch('books.json') 
-            .then(response => response.json())
-            .then(books => {
-                // Find the most recent book using findMostRecentBook function
-                const mostRecentBook = findMostRecentBook(books);
-                // Update the text content of "room1Result" element with the book title
-                document.getElementById("resultRoom1").textContent = `The key to the next room is: ${mostRecentBook.title}`;
-            });
-    });
-
+    fetch('books.json')
+      .then(response => response.json())
+      .then(books => {
+        // Find the most recent book using findMostRecentBook function
+        const mostRecentBook = findMostRecentBook(books);
+        // Update the text content of "room1Result" element with the book title
+        document.getElementById("room1Result").textContent = `The key to the next room is: ${mostRecentBook.title}`;
+      });
+  });
+    
     // Event listener for solving Room 2
     document.getElementById("solveRoom2").addEventListener("click", () => {
         // Define sets for JS and React concepts
@@ -48,9 +49,15 @@ function findMostRecentBook(books) {
     return books.reduce((mostRecent, book) => (new Date(book.published) > new Date(mostRecent.published) ? book : mostRecent)); //changed the smaller than to greater than function.
 }
 
+// Function to find the intersection of two sets
 function findIntersection(setA, setB) {
     // 🪲 Bug: Incorrect logic
-    const intersection = new Set([...setA]);
+    const intersection = new Set();
+    for (const value of setA) {
+        if (setB.has(value)) {
+            intersection.add(value);
+        }
+    }
     return intersection;
 }
 
