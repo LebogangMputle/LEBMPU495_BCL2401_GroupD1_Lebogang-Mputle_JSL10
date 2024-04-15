@@ -12,17 +12,22 @@ document.getElementById("solveRoom1").addEventListener("click", () => {
             });
     });
 
+    // Event listener for solving Room 2
     document.getElementById("solveRoom2").addEventListener("click", () => {
+        // Define sets for JS and React concepts
         const jsConcepts = new Set(['closure', 'scope', 'hoisting']);
         // 🪲 Bug: What's mssing from JS concepts?
         const reactConcepts = new Set(['components', 'jsx', 'hooks', 'async']);
+         // Find the intersection of concepts using findIntersection function
         // 🪲 Bug: Incorrect function call
-        const commonConcepts = findIntersection(jsConcepts, jsConcepts);
+        const commonConcepts = findIntersection(jsConcepts, reactConcepts);//called the reactConcepts, combining it with jsConcepts to find common concepts.
+        // Update the text content of "room2Result" element with the common concepts
         document.getElementById("room2Result").textContent = `The code to unlock the door is: ${Array.from(commonConcepts).join(', ')}`;
     });
 
+    // Event listener for solving Room 3 (asynchronous)
     // 🪲 Bug: Asynchronous function ?
-    document.getElementById("solveRoom3").addEventListener("click", () => {
+    document.getElementById("solveRoom3").addEventListener("click", async () => {   //makes the event listener asynchronous to handle the ftch and navigateLabyrinth promises.
         fetch('directions.json') 
             .then(response => response.json())
             .then(directions => {
