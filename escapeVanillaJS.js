@@ -1,11 +1,13 @@
-document.addEventListener("DOMContentLoaded", () => {
+// Event listener for solving Room 1
+document.getElementById("solveRoom1").addEventListener("click", () => {
     // 🪲 Bug: Incorrect ID used for attaching the event listener
     document.getElementById("solveRoom").addEventListener("click", () => {
         fetch('books.json') 
             .then(response => response.json())
             .then(books => {
+                // Find the most recent book using findMostRecentBook function
                 const mostRecentBook = findMostRecentBook(books);
-                // 🪲 Bug: Incorrect element ID
+                // Update the text content of "room1Result" element with the book title
                 document.getElementById("resultRoom1").textContent = `The key to the next room is: ${mostRecentBook.title}`;
             });
     });
