@@ -62,10 +62,12 @@ function findIntersection(setA, setB) {
     return intersection;    //returns the intersection set. Contains the elements that were found in both the input sets.
 }
 
+
 async function navigateLabyrinth(directions) {
     for (let direction of directions) {
         // 🪲 Bug: No delay
-        await new Promise(resolve => setTimeout(resolve, 1000));    //Introduce a 1 second delay
+        //The Promise is created with a callback function that takes resolve as an argument.
+        await new Promise(resolve => setTimeout(resolve, 1000));    //The await in this promise introduces a 1 second(1000 milliseconds) delay
         console.log(`Navigating: ${direction.step}`);
     }
     return "Congratulations! You've mastered the essentials of Vanilla JavaScript. Welcome to the world of React, where you'll build powerful and dynamic web applications. Let's dive in!";
