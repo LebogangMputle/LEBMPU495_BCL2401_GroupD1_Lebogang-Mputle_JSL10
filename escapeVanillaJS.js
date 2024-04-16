@@ -16,7 +16,7 @@ document.getElementById("solveRoom1").addEventListener("click", () => {
     // Event listener for solving Room 2
     document.getElementById("solveRoom2").addEventListener("click", () => {
         // Define sets for JS and React concepts
-        const jsConcepts = new Set(['closure', 'scope', 'hoisting']);
+        const jsConcepts = new Set(['closure', 'scope', 'hoisting' , 'prototype']); //prototype links objects in javascript when declared as a const.
         // 🪲 Bug: What's mssing from JS concepts?
         const reactConcepts = new Set(['components', 'jsx', 'hooks', 'async']);
          // Find the intersection of concepts using findIntersection function
