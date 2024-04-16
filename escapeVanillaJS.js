@@ -46,7 +46,7 @@ document.getElementById("solveRoom1").addEventListener("click", () => {
 // Function to find the most recent book by published date
 function findMostRecentBook(books) {
     // 🪲 Bug: Logic error
-    return books.reduce((mostRecent, book) => (new Date(book.published) > new Date(mostRecent.published) ? book : mostRecent)); //changed the smaller than to greater than function.
+    return books.reduce((mostRecent, book) => (new Date(book.published) > new Date(mostRecent.published) ? book : mostRecent)); //changed the smaller than to greater than. The function so it can iterates over the books.json file.
 }
 
 // Function to find the intersection of two sets
