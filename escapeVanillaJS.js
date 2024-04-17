@@ -1,6 +1,6 @@
 
 // Event listener for solving Room 1
-document.getElementById("solveRoom1").addEventListener("click", () => {
+document.getElementById("DOMContentLoaded", () => {document.getElementById("solveRoom1").addEventListener("click", () => {
     // Fetch data from 'books.json'
     // 🪲 Bug: Incorrect ID used for attaching the event listener
     fetch('books.json')
@@ -12,6 +12,8 @@ document.getElementById("solveRoom1").addEventListener("click", () => {
         document.getElementById("room1Result").textContent = `The key to the next room is: ${mostRecentBook.title}`;
       });
   });
+})
+
     
     // Event listener for solving Room 2
     document.getElementById("solveRoom2").addEventListener("click", () => {
