@@ -1,6 +1,7 @@
 
 // Event listener for solving Room 1
-document.getElementById("DOMContentLoaded", () => {document.getElementById("solveRoom1").addEventListener("click", () => {
+document.addEventListener("DOMContentLoaded", () => {
+document.getElementById("solveRoom1").addEventListener("click", () => {
     // Fetch data from 'books.json'
     // 🪲 Bug: Incorrect ID used for attaching the event listener
     fetch('books.json')
@@ -11,8 +12,7 @@ document.getElementById("DOMContentLoaded", () => {document.getElementById("solv
         // Update the text content of "room1Result" element with the book title
         document.getElementById("room1Result").textContent = `The key to the next room is: ${mostRecentBook.title}`;
       });
-  });
-})
+    });
 
     
     // Event listener for solving Room 2
@@ -44,6 +44,7 @@ document.getElementById("DOMContentLoaded", () => {document.getElementById("solv
         // Handle the error. Display an error message to the user
         }
     });
+    })
 
 // Function to find the most recent book by published date
 function findMostRecentBook(books) {
