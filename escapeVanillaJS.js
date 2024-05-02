@@ -24,9 +24,8 @@ document.getElementById("solveRoom1").addEventListener("click", () => {
          // Find the intersection of concepts using findIntersection function
         // 🪲 Bug: Incorrect function call
         const commonConcepts = findIntersection(jsConcepts, reactConcepts);//called the reactConcepts, combining it with jsConcepts to find common concepts.
-        const commonConceptsArray = ['async']
         // Update the text content of "room2Result" element with the common concepts
-        document.getElementById("room2Result").textContent = `The code to unlock the door is: ${(commonConcepts).commonConceptsArray}`;
+        document.getElementById("room2Result").textContent = `The code to unlock the door is: ${Array.from(commonConcepts).join(', ')}`;
     });
 
     // 🪲 Bug: Asynchronous function ?
